@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
 
   // Podświetlanie aktywnej sekcji w menu
-  const sections = ["home", "portfolio", "kontakt"]
+  const sections = ["home", "o-mnie", "portfolio", "kontakt"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 

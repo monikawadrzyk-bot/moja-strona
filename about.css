@@ -1,0 +1,71 @@
+/* ===== Sekcja O mnie ===== */
+.about {
+  padding: 6rem 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about__photo {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent), #a855f7);
+  box-shadow: var(--shadow-hover);
+}
+
+.about__text {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin-bottom: 1rem;
+}
+
+.about__subtitle {
+  font-size: 1.1rem;
+  margin: 2rem 0 1rem;
+}
+
+.about__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about__skills li {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: var(--color-bg);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.about__skills li:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about__photo {
+    width: 160px;
+    font-size: 2.5rem;
+  }
+}
