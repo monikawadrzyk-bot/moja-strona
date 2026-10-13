@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monika Wądrzyk — Strona osobista</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="#home" class="navbar__logo">MW<span>.</span></a>
+      <button class="navbar__toggle" aria-label="Otwórz menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="navbar__links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <p class="hero__greeting">Cześć, jestem</p>
+        <h1 class="hero__name">Monika Wądrzyk</h1>
+        <p class="hero__description">
+          Tworzę proste, przemyślane i dostępne strony internetowe.
+          Lubię czysty kod, minimalistyczny design i rozwiązywanie realnych problemów.
+        </p>
+        <div class="hero__actions">
+          <a href="#portfolio" class="btn btn--primary">Zobacz projekty</a>
+          <a href="#kontakt" class="btn btn--ghost">Napisz do mnie</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-subtitle">Kilka wybranych projektów, nad którymi pracowałam.</p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__image card__image--1" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Aplikacja To-Do</h3>
+              <p class="card__text">Lekka aplikacja do zarządzania zadaniami z zapisem w localStorage.</p>
+              <ul class="card__tags">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+              </ul>
+              <a href="#" class="card__link">Zobacz projekt &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__image card__image--2" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Prognoza pogody</h3>
+              <p class="card__text">Widżet pogodowy pobierający dane z publicznego API w czasie rzeczywistym.</p>
+              <ul class="card__tags">
+                <li>JavaScript</li><li>API</li><li>Fetch</li>
+              </ul>
+              <a href="#" class="card__link">Zobacz projekt &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__image card__image--3" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Landing page</h3>
+              <p class="card__text">Responsywna strona produktowa zaprojektowana w podejściu mobile-first.</p>
+              <ul class="card__tags">
+                <li>CSS Grid</li><li>Flexbox</li><li>RWD</li>
+              </ul>
+              <a href="#" class="card__link">Zobacz projekt &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontakt" class="footer">
+    <div class="container footer__inner">
+      <div>
+        <h2 class="footer__title">Kontakt</h2>
+        <p class="footer__text">Masz pomysł na projekt? Znajdziesz mnie tutaj:</p>
+      </div>
+      <ul class="footer__links">
+        <li>
+          <a href="https://github.com/monikawadrzyk-bot" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Monika Wądrzyk. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
