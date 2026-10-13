@@ -244,13 +244,24 @@ ul {
   box-shadow: var(--shadow-hover);
 }
 
-.card__image {
-  aspect-ratio: 16 / 9;
+.card__media {
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.card__image--1 { background: linear-gradient(135deg, #6366f1, #a855f7); }
-.card__image--2 { background: linear-gradient(135deg, #0ea5e9, #22d3ee); }
-.card__image--3 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--color-accent-soft);
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.04);
+}
 
 .card__body {
   padding: 1.5rem;
