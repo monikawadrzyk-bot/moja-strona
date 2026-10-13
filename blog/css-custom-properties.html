@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS custom properties w praktyce — Blog Moniki Wądrzyk</title>
+  <meta name="description" content="Jak zmienne CSS pomogły mi uporządkować kolory na stronie i dodać tryb ciemny w kilkunastu linijkach kodu.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="../index.html#home" class="navbar__logo">MW<span>.</span></a>
+      <button class="navbar__toggle" aria-label="Otwórz menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="navbar__links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#o-mnie">O mnie</a></li>
+          <li><a href="../index.html#portfolio">Portfolio</a></li>
+          <li><a href="../index.html#blog" class="active" aria-current="page">Blog</a></li>
+          <li><a href="../index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article">
+    <a href="../index.html#blog" class="article__back">&larr; Wróć do bloga</a>
+    <div class="post__meta">
+      <time datetime="2026-09-18">18 września 2026</time>
+      <span aria-hidden="true">·</span>
+      <span>4 min czytania</span>
+    </div>
+    <span class="post__tag">CSS</span>
+    <h1 class="article__title">CSS custom properties w praktyce</h1>
+    <p class="article__lead">Jak zmienne CSS pomogły mi uporządkować kolory na stronie i dodać tryb ciemny w kilkunastu linijkach kodu.</p>
+
+    <div class="article__body">
+      <p>
+        Na początku nauki wpisywałam kolory bezpośrednio w każdej regule: <code>#4f46e5</code> tutaj,
+        <code>#4f46e5</code> tam… Zmiana koloru akcentu oznaczała szukanie i podmienianie w całym pliku.
+        Rozwiązaniem okazały się <strong>CSS custom properties</strong>, czyli zmienne CSS.
+      </p>
+
+      <h2>Definicja i użycie</h2>
+      <p>Zmienne definiuje się zwykle w selektorze <code>:root</code>, żeby były dostępne w całym dokumencie:</p>
+      <pre><code>:root {
+  --color-text: #1f2328;
+  --color-accent: #4f46e5;
+  --radius: 12px;
+}
+
+.btn {
+  background: var(--color-accent);
+  border-radius: var(--radius);
+}</code></pre>
+      <p>Teraz zmiana koloru akcentu to edycja jednej linijki.</p>
+
+      <h2>Tryb ciemny prawie za darmo</h2>
+      <p>
+        Największa zaleta zmiennych: można je nadpisać w zapytaniu media. Jeśli system użytkownika
+        ma włączony ciemny motyw, podmieniam tylko wartości — reszta stylów zostaje bez zmian:
+      </p>
+      <pre><code>@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f1115;
+    --color-text: #e6e8eb;
+    --color-accent: #818cf8;
+  }
+}</code></pre>
+
+      <h2>Wartość zapasowa</h2>
+      <p>
+        Funkcja <code>var()</code> przyjmuje drugi argument, który zostanie użyty, gdy zmienna
+        nie jest zdefiniowana: <code>color: var(--color-link, blue);</code>.
+      </p>
+
+      <h2>Zmienne a JavaScript</h2>
+      <p>W przeciwieństwie do zmiennych z preprocesorów (np. Sass), custom properties działają w przeglądarce, więc można je zmieniać z poziomu JavaScriptu:</p>
+      <pre><code>document.documentElement.style.setProperty("--color-accent", "#a855f7");</code></pre>
+
+      <h2>Moje zasady nazywania</h2>
+      <ul>
+        <li>Nazwy opisują rolę, nie wygląd: <code>--color-accent</code> zamiast <code>--purple</code>.</li>
+        <li>Wspólny prefiks dla grupy: <code>--color-*</code>, <code>--font-*</code>.</li>
+        <li>Wszystkie zmienne w jednym miejscu na początku pliku.</li>
+      </ul>
+      <p>Ta strona korzysta dokładnie z tego podejścia — zajrzyj do pliku <code>styles.css</code> w moim repozytorium.</p>
+    </div>
+
+    <div class="article__footer">
+      <a href="../index.html#blog" class="btn btn--ghost">&larr; Wszystkie wpisy</a>
+      <a href="../index.html#kontakt" class="btn btn--primary">Napisz do mnie</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Monika Wądrzyk. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

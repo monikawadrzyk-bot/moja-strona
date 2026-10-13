@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".navbar__links a");
 
   // Rok w stopce
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
   // Menu mobilne
   toggle.addEventListener("click", () => {
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
 
   // Podświetlanie aktywnej sekcji w menu
-  const sections = ["home", "o-mnie", "portfolio", "kontakt"]
+  const sections = ["home", "o-mnie", "portfolio", "blog", "kontakt"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -53,13 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "scroll",
     () => {
       const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
-      if (atBottom) setActive("kontakt");
+      if (atBottom && sections.length) setActive("kontakt");
     },
     { passive: true }
   );
 
   // Animacja pojawiania się kart
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".card, .post");
   cards.forEach((card) => card.classList.add("reveal"));
 
   const revealObserver = new IntersectionObserver(

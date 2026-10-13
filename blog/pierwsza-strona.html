@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jak zbudowałam swoją pierwszą stronę od zera — Blog Moniki Wądrzyk</title>
+  <meta name="description" content="Od pustego pliku index.html do strony na GitHub Pages — czego się nauczyłam i co zrobiłabym dziś inaczej.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="../index.html#home" class="navbar__logo">MW<span>.</span></a>
+      <button class="navbar__toggle" aria-label="Otwórz menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="navbar__links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#o-mnie">O mnie</a></li>
+          <li><a href="../index.html#portfolio">Portfolio</a></li>
+          <li><a href="../index.html#blog" class="active" aria-current="page">Blog</a></li>
+          <li><a href="../index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article">
+    <a href="../index.html#blog" class="article__back">&larr; Wróć do bloga</a>
+    <div class="post__meta">
+      <time datetime="2026-09-02">2 września 2026</time>
+      <span aria-hidden="true">·</span>
+      <span>6 min czytania</span>
+    </div>
+    <span class="post__tag">Nauka</span>
+    <h1 class="article__title">Jak zbudowałam swoją pierwszą stronę od zera</h1>
+    <p class="article__lead">Od pustego pliku index.html do strony na GitHub Pages — czego się nauczyłam i co zrobiłabym dziś inaczej.</p>
+
+    <div class="article__body">
+      <p>
+        Każdy kurs front-endu kończy się tym samym zadaniem: „zbuduj własne portfolio”.
+        Odkładałam to przez tygodnie, bo wydawało mi się, że muszę najpierw nauczyć się frameworka.
+        Okazało się, że wystarczą trzy pliki: <code>index.html</code>, <code>styles.css</code>
+        i <code>script.js</code>.
+      </p>
+
+      <h2>Krok 1: struktura przed wyglądem</h2>
+      <p>
+        Zaczęłam od samego HTML-a, bez żadnych stylów. Nagłówek z nawigacją, sekcja powitalna,
+        portfolio, stopka. Używanie semantycznych znaczników (<code>&lt;header&gt;</code>,
+        <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>)
+        sprawiło, że kod od razu był czytelniejszy — i lepszy dla czytników ekranu.
+      </p>
+
+      <h2>Krok 2: mobile first</h2>
+      <p>
+        Pierwsza wersja wyglądała świetnie na laptopie i fatalnie na telefonie. Przepisałam style tak,
+        żeby bazowo działały na wąskim ekranie, a dopiero zapytania <code>@media</code> dodawały układ
+        wielokolumnowy. Bardzo pomogły mi <code>CSS Grid</code> z <code>auto-fit</code> i
+        <code>minmax()</code> — karty same układają się w tyle kolumn, ile się mieści.
+      </p>
+
+      <h2>Krok 3: odrobina JavaScriptu</h2>
+      <p>Na stronie wizytówce JS nie jest konieczny, ale przydał się do kilku drobiazgów:</p>
+      <ul>
+        <li>menu „hamburger” na telefonach,</li>
+        <li>podświetlanie aktywnej sekcji w nawigacji (<code>IntersectionObserver</code>),</li>
+        <li>walidacja formularza kontaktowego.</li>
+      </ul>
+
+      <h2>Krok 4: publikacja</h2>
+      <p>
+        Najbardziej bałam się wdrożenia, a było najprostsze: repozytorium na GitHubie, potem
+        <em>Settings → Pages</em>, wybór gałęzi <code>main</code> i po minucie strona była online.
+        Każdy kolejny merge automatycznie aktualizuje stronę.
+      </p>
+
+      <h2>Co zrobiłabym inaczej?</h2>
+      <ol>
+        <li><strong>Wcześniej zaczęłabym używać Gita.</strong> Pierwsze wersje trzymałam w folderach „strona_v2_final_NOWA”.</li>
+        <li><strong>Mniej czasu na wybór kolorów.</strong> Lepiej zdefiniować paletę w zmiennych CSS i wrócić do niej później.</li>
+        <li><strong>Pull requesty nawet w jednoosobowym projekcie.</strong> Opis zmian w PR to świetna dokumentacja dla siebie z przyszłości.</li>
+      </ol>
+
+      <blockquote>Gotowe jest lepsze niż idealne. Strona, która jest online, uczy więcej niż ta, która wciąż „prawie” jest skończona.</blockquote>
+    </div>
+
+    <div class="article__footer">
+      <a href="../index.html#blog" class="btn btn--ghost">&larr; Wszystkie wpisy</a>
+      <a href="../index.html#kontakt" class="btn btn--primary">Napisz do mnie</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Monika Wądrzyk. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
