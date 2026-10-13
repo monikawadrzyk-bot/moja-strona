@@ -29,6 +29,8 @@
   width: 100%;
   height: 100%;
   border: 0;
+  /* Mapa Google nie ma ciemnego motywu w osadzeniu — przyciemniamy ją filtrem */
+  filter: invert(90%) hue-rotate(180deg) saturate(0.8) contrast(0.9);
 }
 
 .contact__form {

@@ -1,0 +1,105 @@
+/* ===== Abstrakcyjne tło sekcji hero ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Delikatna siatka linii, wygaszona ku krawędziom */
+.hero__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, #000, transparent 75%);
+}
+
+/* Płynne przejście do kolejnej sekcji */
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+}
+
+/* Rozmyte, powoli dryfujące plamy koloru */
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.hero__orb--1 {
+  width: 520px;
+  height: 520px;
+  top: -8%;
+  right: 4%;
+  background: radial-gradient(circle at 30% 30%, #6366f1, #4338ca 60%, transparent 70%);
+  animation: orb-drift-1 22s ease-in-out infinite alternate;
+}
+
+.hero__orb--2 {
+  width: 420px;
+  height: 420px;
+  top: 38%;
+  right: 22%;
+  background: radial-gradient(circle at 50% 50%, #a855f7, #7e22ce 60%, transparent 70%);
+  opacity: 0.45;
+  animation: orb-drift-2 26s ease-in-out infinite alternate;
+}
+
+.hero__orb--3 {
+  width: 360px;
+  height: 360px;
+  bottom: -10%;
+  right: -4%;
+  background: radial-gradient(circle at 50% 50%, #22d3ee, #0e7490 60%, transparent 70%);
+  opacity: 0.35;
+  animation: orb-drift-3 30s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-1 {
+  to { transform: translate(-90px, 60px) scale(1.08); }
+}
+
+@keyframes orb-drift-2 {
+  to { transform: translate(110px, -70px) scale(0.92); }
+}
+
+@keyframes orb-drift-3 {
+  to { transform: translate(-120px, -50px) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__orb { animation: none; }
+}
+
+@media (max-width: 760px) {
+  .hero__orb--1 { width: 340px; height: 340px; right: -30%; }
+  .hero__orb--2 { width: 280px; height: 280px; top: 50%; right: 10%; }
+  .hero__orb--3 { width: 240px; height: 240px; right: -20%; }
+
+  .hero__bg::before {
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 60% 50%, #000, transparent 75%);
+    mask-image: radial-gradient(ellipse 90% 60% at 60% 50%, #000, transparent 75%);
+  }
+}

@@ -1,40 +1,27 @@
 /* ===== Zmienne ===== */
 :root {
-  --color-bg: #fafafa;
-  --color-surface: #ffffff;
-  --color-text: #1f2328;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-accent: #4f46e5;
-  --color-accent-hover: #4338ca;
-  --color-accent-soft: #eef2ff;
-  --color-error: #dc2626;
-  --color-success: #16a34a;
+  color-scheme: dark;
+
+  --color-bg: #0b0d14;
+  --color-surface: #12151f;
+  --color-text: #e6e8eb;
+  --color-muted: #9aa1ac;
+  --color-border: #242938;
+  --color-accent: #818cf8;
+  --color-accent-hover: #a5b4fc;
+  --color-accent-soft: #1a1d3a;
+  --color-btn: #5b5bd6;
+  --color-btn-hover: #4f46e5;
+  --color-error: #f87171;
+  --color-success: #4ade80;
 
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --radius: 12px;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.08);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.5);
   --max-width: 1100px;
   --nav-height: 64px;
   --transition: 0.2s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #0f1115;
-    --color-surface: #171a21;
-    --color-text: #e6e8eb;
-    --color-muted: #9aa1ac;
-    --color-border: #2a2f3a;
-    --color-accent: #818cf8;
-    --color-accent-hover: #a5b4fc;
-    --color-accent-soft: #1e2140;
-    --color-error: #f87171;
-    --color-success: #4ade80;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.5);
-  }
 }
 
 /* ===== Reset / baza ===== */
@@ -203,12 +190,12 @@ ul {
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: var(--color-btn);
   color: #fff;
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-hover);
+  background: var(--color-btn-hover);
 }
 
 .btn--ghost {
