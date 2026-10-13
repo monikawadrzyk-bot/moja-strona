@@ -14,6 +14,23 @@
   flex-wrap: wrap;
 }
 
+.contact__map {
+  margin-top: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--color-surface);
+  aspect-ratio: 4 / 3;
+}
+
+.contact__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .contact__form {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
