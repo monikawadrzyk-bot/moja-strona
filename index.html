@@ -6,6 +6,7 @@
   <title>Monika Wądrzyk — Strona osobista</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
   <header class="navbar">
@@ -117,11 +118,13 @@
   </main>
 
   <footer id="kontakt" class="footer">
-    <div class="container footer__inner">
-      <div>
+    <div class="container footer__inner contact">
+      <div class="contact__intro">
         <h2 class="footer__title">Kontakt</h2>
-        <p class="footer__text">Masz pomysł na projekt? Znajdziesz mnie tutaj:</p>
-      </div>
+        <p class="footer__text">
+          Masz pomysł na projekt albo propozycję współpracy? Wypełnij formularz —
+          odpowiem najszybciej, jak to możliwe. Znajdziesz mnie też tutaj:
+        </p>
       <ul class="footer__links">
         <li>
           <a href="https://github.com/monikawadrzyk-bot" target="_blank" rel="noopener noreferrer">
@@ -136,6 +139,55 @@
           </a>
         </li>
       </ul>
+      </div>
+
+      <form class="contact__form" id="contact-form" novalidate data-endpoint="">
+        <div class="form__row">
+          <div class="form__field">
+            <label for="cf-name">Imię i nazwisko <span aria-hidden="true">*</span></label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required minlength="2"
+                   aria-describedby="cf-name-error">
+            <p class="form__error" id="cf-name-error" aria-live="polite"></p>
+          </div>
+          <div class="form__field">
+            <label for="cf-email">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required
+                   aria-describedby="cf-email-error">
+            <p class="form__error" id="cf-email-error" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label for="cf-topic">Temat <span aria-hidden="true">*</span></label>
+          <select id="cf-topic" name="topic" required aria-describedby="cf-topic-error">
+            <option value="">Wybierz temat…</option>
+            <option value="projekt">Nowy projekt / zlecenie</option>
+            <option value="wspolpraca">Współpraca</option>
+            <option value="pytanie">Pytanie</option>
+            <option value="inne">Inne</option>
+          </select>
+          <p class="form__error" id="cf-topic-error" aria-live="polite"></p>
+        </div>
+
+        <div class="form__field">
+          <label for="cf-message">Wiadomość <span aria-hidden="true">*</span></label>
+          <textarea id="cf-message" name="message" rows="5" required minlength="10" maxlength="1000"
+                    aria-describedby="cf-message-error cf-message-count"></textarea>
+          <div class="form__meta">
+            <p class="form__error" id="cf-message-error" aria-live="polite"></p>
+            <span class="form__count" id="cf-message-count">0 / 1000</span>
+          </div>
+        </div>
+
+        <div class="form__field form__field--checkbox">
+          <input type="checkbox" id="cf-consent" name="consent" required aria-describedby="cf-consent-error">
+          <label for="cf-consent">Wyrażam zgodę na przetwarzanie moich danych w celu odpowiedzi na wiadomość. <span aria-hidden="true">*</span></label>
+          <p class="form__error" id="cf-consent-error" aria-live="polite"></p>
+        </div>
+
+        <button type="submit" class="btn btn--primary form__submit">Wyślij zgłoszenie</button>
+        <p class="form__status" id="cf-status" role="status"></p>
+      </form>
     </div>
     <div class="container footer__bottom">
       <p>&copy; <span id="year"></span> Monika Wądrzyk. Wszelkie prawa zastrzeżone.</p>
