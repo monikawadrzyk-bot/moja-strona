@@ -1,4 +1,4 @@
-/* ===== Tło sekcji hero ===== */
+/* ===== Abstrakcyjne tło sekcji hero ===== */
 .hero {
   position: relative;
   overflow: hidden;
@@ -15,91 +15,91 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  /* Siatka kropek + delikatna poświata w kolorze akcentu */
-  background:
-    radial-gradient(circle at 75% 45%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 45%),
-    radial-gradient(circle, color-mix(in srgb, var(--color-muted) 28%, transparent) 1px, transparent 1.5px) 0 0 / 24px 24px;
-  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
-  mask-image: linear-gradient(to bottom, #000 70%, transparent);
 }
 
-.hero__art {
+/* Delikatna siatka linii, wygaszona ku krawędziom */
+.hero__bg::before {
+  content: "";
   position: absolute;
-  z-index: 0;
-  top: 50%;
-  right: max(1.5rem, calc((100% - var(--max-width)) / 2));
-  width: min(40vw, 500px);
-  transform: translateY(-50%);
-  pointer-events: none;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, #000, transparent 75%);
 }
 
-/* Kolory ilustracji oparte na zmiennych — działają w trybie jasnym i ciemnym */
-.art-window { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1.5; }
-.art-bar { fill: var(--color-bg); }
-.art-url { fill: var(--color-border); }
-.art-line { fill: var(--color-border); }
-.art-accent { fill: var(--color-accent); opacity: 0.85; }
-.art-card { opacity: 0.9; }
-.art-card--1 { fill: #818cf8; }
-.art-card--2 { fill: #38bdf8; }
-.art-card--3 { fill: #fb923c; }
-
-.art-dot--red { fill: #f87171; }
-.art-dot--yellow { fill: #fbbf24; }
-.art-dot--green { fill: #4ade80; }
-
-/* Edytor jest zawsze ciemny, jak w prawdziwym IDE */
-.art-editor { fill: #1e1b3a; }
-.art-shadow { fill: #1e1b4b; opacity: 0.18; }
-.art-code text { font: 500 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; }
-.c-num { fill: #6b6890; }
-.c-tag { fill: #f472b6; }
-.c-attr { fill: #93c5fd; }
-.c-str { fill: #86efac; }
-.c-prop { fill: #c4b5fd; }
-.c-txt { fill: #e5e7eb; }
-.art-cursor { fill: #e5e7eb; animation: art-blink 1.1s steps(1) infinite; }
-
-.art-badge { fill: var(--color-accent); }
-.art-badge--soft { fill: var(--color-accent-soft); stroke: var(--color-border); }
-.art-badge-text { font: 700 24px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #fff; }
-.art-badge-text--soft { font-size: 22px; fill: var(--color-accent); }
-
-/* Delikatne unoszenie się elementów */
-.art-float { animation: art-float 6s ease-in-out infinite; }
-.art-float--slow { animation-duration: 8s; }
-.art-float--fast { animation-duration: 4.5s; }
-
-@keyframes art-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+/* Płynne przejście do kolejnej sekcji */
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
 }
 
-@keyframes art-blink {
-  50% { opacity: 0; }
+/* Rozmyte, powoli dryfujące plamy koloru */
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.hero__orb--1 {
+  width: 520px;
+  height: 520px;
+  top: -8%;
+  right: 4%;
+  background: radial-gradient(circle at 30% 30%, #6366f1, #4338ca 60%, transparent 70%);
+  animation: orb-drift-1 22s ease-in-out infinite alternate;
+}
+
+.hero__orb--2 {
+  width: 420px;
+  height: 420px;
+  top: 38%;
+  right: 22%;
+  background: radial-gradient(circle at 50% 50%, #a855f7, #7e22ce 60%, transparent 70%);
+  opacity: 0.45;
+  animation: orb-drift-2 26s ease-in-out infinite alternate;
+}
+
+.hero__orb--3 {
+  width: 360px;
+  height: 360px;
+  bottom: -10%;
+  right: -4%;
+  background: radial-gradient(circle at 50% 50%, #22d3ee, #0e7490 60%, transparent 70%);
+  opacity: 0.35;
+  animation: orb-drift-3 30s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-1 {
+  to { transform: translate(-90px, 60px) scale(1.08); }
+}
+
+@keyframes orb-drift-2 {
+  to { transform: translate(110px, -70px) scale(0.92); }
+}
+
+@keyframes orb-drift-3 {
+  to { transform: translate(-120px, -50px) scale(1.12); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .art-float, .art-cursor { animation: none; }
+  .hero__orb { animation: none; }
 }
 
-/* Na węższych ekranach ilustracja przechodzi pod tekst */
-@media (max-width: 1100px) {
-  .hero {
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-  }
+@media (max-width: 760px) {
+  .hero__orb--1 { width: 340px; height: 340px; right: -30%; }
+  .hero__orb--2 { width: 280px; height: 280px; top: 50%; right: 10%; }
+  .hero__orb--3 { width: 240px; height: 240px; right: -20%; }
 
-  .hero > .container {
-    align-self: stretch;
-  }
-
-  .hero__art {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    width: min(100% - 3rem, 480px);
+  .hero__bg::before {
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 60% 50%, #000, transparent 75%);
+    mask-image: radial-gradient(ellipse 90% 60% at 60% 50%, #000, transparent 75%);
   }
 }

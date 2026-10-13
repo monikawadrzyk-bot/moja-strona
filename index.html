@@ -31,7 +31,11 @@
 
   <main>
     <section id="home" class="hero">
-      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__orb hero__orb--1"></span>
+        <span class="hero__orb hero__orb--2"></span>
+        <span class="hero__orb hero__orb--3"></span>
+      </div>
       <div class="container">
         <p class="hero__greeting">Cześć, jestem</p>
         <h1 class="hero__name">Monika Wądrzyk</h1>
@@ -44,56 +48,6 @@
           <a href="#kontakt" class="btn btn--ghost">Napisz do mnie</a>
         </div>
       </div>
-
-      <svg class="hero__art" aria-hidden="true" viewBox="0 0 560 480" xmlns="http://www.w3.org/2000/svg" focusable="false">
-        <defs>
-          <filter id="art-blur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="14"/>
-          </filter>
-        </defs>
-        <!-- Okno przeglądarki z makietą strony -->
-        <g class="art-float art-float--slow">
-          <rect class="art-window" x="150" y="30" width="390" height="280" rx="16"/>
-          <path class="art-bar" d="M150 46a16 16 0 0 1 16-16h358a16 16 0 0 1 16 16v26H150z"/>
-          <circle class="art-dot art-dot--red" cx="174" cy="51" r="6"/>
-          <circle class="art-dot art-dot--yellow" cx="194" cy="51" r="6"/>
-          <circle class="art-dot art-dot--green" cx="214" cy="51" r="6"/>
-          <rect class="art-url" x="240" y="42" width="270" height="18" rx="9"/>
-          <rect class="art-accent" x="178" y="96" width="150" height="14" rx="7"/>
-          <rect class="art-line" x="178" y="122" width="230" height="9" rx="4.5"/>
-          <rect class="art-line" x="178" y="140" width="190" height="9" rx="4.5"/>
-          <rect class="art-accent" x="178" y="162" width="70" height="20" rx="6"/>
-          <rect class="art-card art-card--1" x="178" y="204" width="104" height="80" rx="10"/>
-          <rect class="art-card art-card--2" x="293" y="204" width="104" height="80" rx="10"/>
-          <rect class="art-card art-card--3" x="408" y="204" width="104" height="80" rx="10"/>
-        </g>
-
-        <!-- Edytor kodu -->
-        <g class="art-float">
-          <rect class="art-shadow" x="56" y="250" width="300" height="190" rx="20" filter="url(#art-blur)"/>
-          <rect class="art-editor" x="40" y="230" width="330" height="200" rx="16"/>
-          <circle class="art-dot art-dot--red" cx="64" cy="252" r="5"/>
-          <circle class="art-dot art-dot--yellow" cx="80" cy="252" r="5"/>
-          <circle class="art-dot art-dot--green" cx="96" cy="252" r="5"/>
-          <g class="art-code">
-            <text x="60" y="292"><tspan class="c-num">1</tspan>  <tspan class="c-tag">&lt;section</tspan> <tspan class="c-attr">class</tspan>=<tspan class="c-str">"hero"</tspan><tspan class="c-tag">&gt;</tspan></text>
-            <text x="60" y="318"><tspan class="c-num">2</tspan>    <tspan class="c-tag">&lt;h1&gt;</tspan><tspan class="c-txt">Cześć!</tspan><tspan class="c-tag">&lt;/h1&gt;</tspan></text>
-            <text x="60" y="344"><tspan class="c-num">3</tspan>  <tspan class="c-tag">&lt;/section&gt;</tspan></text>
-            <text x="60" y="370"><tspan class="c-num">4</tspan>  <tspan class="c-prop">.hero</tspan> <tspan class="c-txt">{</tspan></text>
-            <text x="60" y="396"><tspan class="c-num">5</tspan>    <tspan class="c-attr">color</tspan><tspan class="c-txt">:</tspan> <tspan class="c-str">var(--accent)</tspan><tspan class="c-txt">;</tspan><tspan class="art-cursor">|</tspan></text>
-          </g>
-        </g>
-
-        <!-- Odznaki -->
-        <g class="art-float art-float--fast">
-          <circle class="art-badge" cx="500" cy="372" r="36"/>
-          <text class="art-badge-text" x="500" y="381" text-anchor="middle">&lt;/&gt;</text>
-        </g>
-        <g class="art-float art-float--slow">
-          <circle class="art-badge art-badge--soft" cx="90" cy="120" r="30"/>
-          <text class="art-badge-text art-badge-text--soft" x="90" y="128" text-anchor="middle">{ }</text>
-        </g>
-      </svg>
     </section>
 
     <section id="o-mnie" class="about">
