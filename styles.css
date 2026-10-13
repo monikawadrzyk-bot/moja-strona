@@ -8,6 +8,8 @@
   --color-accent: #4f46e5;
   --color-accent-hover: #4338ca;
   --color-accent-soft: #eef2ff;
+  --color-error: #dc2626;
+  --color-success: #16a34a;
 
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --radius: 12px;
@@ -28,6 +30,8 @@
     --color-accent: #818cf8;
     --color-accent-hover: #a5b4fc;
     --color-accent-soft: #1e2140;
+    --color-error: #f87171;
+    --color-success: #4ade80;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.5);
   }
