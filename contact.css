@@ -180,3 +180,13 @@
     gap: 0;
   }
 }
+
+.form__field--checkbox label a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form__field--checkbox label a:hover {
+  color: var(--color-accent-hover);
+}

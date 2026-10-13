@@ -406,7 +406,7 @@ ul {
   }
 
   .navbar__links.open {
-    max-height: 300px;
+    max-height: 400px;
   }
 
   .navbar__links a {
