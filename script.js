@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
 
   // Podświetlanie aktywnej sekcji w menu
-  const sections = ["home", "o-mnie", "portfolio", "blog", "kontakt"]
+  const sections = ["home", "o-mnie", "uslugi", "portfolio", "blog", "kontakt"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // Animacja pojawiania się kart
-  const cards = document.querySelectorAll(".card, .post");
+  const cards = document.querySelectorAll(".card, .post, .service");
   cards.forEach((card) => card.classList.add("reveal"));
 
   const revealObserver = new IntersectionObserver(
