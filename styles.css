@@ -386,6 +386,7 @@ ul {
 @media (max-width: 640px) {
   .navbar__toggle {
     display: flex;
+    margin-left: auto;
   }
 
   .navbar__links {
