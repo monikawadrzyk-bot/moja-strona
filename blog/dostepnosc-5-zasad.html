@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 zasad dostępności, o których łatwo zapomnieć — Blog Moniki Wądrzyk</title>
+  <meta name="description" content="Kontrast, etykiety formularzy, nawigacja klawiaturą… Krótka lista rzeczy, które sprawdzam przed opublikowaniem każdej strony.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="../index.html#home" class="navbar__logo">MW<span>.</span></a>
+      <button class="navbar__toggle" aria-label="Otwórz menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="navbar__links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#o-mnie">O mnie</a></li>
+          <li><a href="../index.html#portfolio">Portfolio</a></li>
+          <li><a href="../index.html#blog" class="active" aria-current="page">Blog</a></li>
+          <li><a href="../index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article">
+    <a href="../index.html#blog" class="article__back">&larr; Wróć do bloga</a>
+    <div class="post__meta">
+      <time datetime="2026-10-06">6 października 2026</time>
+      <span aria-hidden="true">·</span>
+      <span>5 min czytania</span>
+    </div>
+    <span class="post__tag">Dostępność</span>
+    <h1 class="article__title">5 zasad dostępności, o których łatwo zapomnieć</h1>
+    <p class="article__lead">Kontrast, etykiety formularzy, nawigacja klawiaturą… Krótka lista rzeczy, które sprawdzam przed opublikowaniem każdej strony.</p>
+
+    <div class="article__body">
+      <p>
+        Dostępność (ang. <em>accessibility</em>, w skrócie a11y) brzmi jak temat dla dużych firm
+        i specjalistów. W praktyce większość problemów da się wyłapać kilkoma prostymi nawykami.
+        Oto moja lista kontrolna.
+      </p>
+
+      <h2>1. Każde pole formularza ma etykietę</h2>
+      <p>
+        Placeholder to nie etykieta — znika, gdy zaczynasz pisać, a czytnik ekranu nie zawsze go odczyta.
+        Każdy <code>&lt;input&gt;</code> powinien mieć powiązany <code>&lt;label&gt;</code>:
+      </p>
+      <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
+&lt;input type="email" id="email" name="email"&gt;</code></pre>
+      <p>Bonus: kliknięcie w etykietę ustawia kursor w polu, co ułatwia życie wszystkim.</p>
+
+      <h2>2. Wystarczający kontrast tekstu</h2>
+      <p>
+        Jasnoszary tekst na białym tle wygląda elegancko, ale bywa nieczytelny. Wytyczne WCAG
+        wymagają kontrastu co najmniej <strong>4.5:1</strong> dla zwykłego tekstu i <strong>3:1</strong>
+        dla dużego. Sprawdzam to w narzędziach deweloperskich przeglądarki — po najechaniu na element
+        Chrome pokazuje współczynnik kontrastu.
+      </p>
+
+      <h2>3. Strona działa bez myszy</h2>
+      <p>
+        Odłóż myszkę i przejdź przez stronę klawiszem <kbd>Tab</kbd>. Czy widzisz, gdzie jest fokus?
+        Czy da się otworzyć menu i wysłać formularz? Najczęstszy błąd to <code>outline: none</code>
+        bez żadnego zamiennika — wtedy użytkownik klawiatury jest zupełnie zgubiony.
+      </p>
+
+      <h2>4. Obrazy mają sensowny tekst alternatywny</h2>
+      <p>
+        Atrybut <code>alt</code> opisuje, co jest na obrazie, a nie że „to jest obraz”.
+        Jeśli grafika jest czysto dekoracyjna, zostaw <code>alt=""</code> — czytnik ekranu ją pominie.
+      </p>
+
+      <h2>5. Szanuj ustawienia użytkownika</h2>
+      <p>
+        Niektóre osoby źle znoszą animacje i włączają w systemie opcję ograniczenia ruchu.
+        CSS pozwala to uszanować jednym zapytaniem:
+      </p>
+      <pre><code>@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}</code></pre>
+
+      <blockquote>
+        Dostępność to nie dodatek na koniec projektu — najtaniej jest o niej myśleć od pierwszej linijki kodu.
+      </blockquote>
+      <p>
+        Na tej stronie stosuję wszystkie powyższe zasady. Jeśli coś przeoczyłam — napisz do mnie,
+        chętnie poprawię.
+      </p>
+    </div>
+
+    <div class="article__footer">
+      <a href="../index.html#blog" class="btn btn--ghost">&larr; Wszystkie wpisy</a>
+      <a href="../index.html#kontakt" class="btn btn--primary">Napisz do mnie</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Monika Wądrzyk. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
